@@ -6,15 +6,19 @@ import { useEffect } from "react";
 
 function App() {
 
-  const url = `https://api.data.gov.sg/v1/transport/carpark-availability`
 
-  axios.get(url)
-    .then(response => {
-      console.log("response", response)
-    })
-    .catch((reason) => {
-      console.log("Error", reason);
-    });
+  useEffect(() => {
+    const url = `https://api.data.gov.sg/v1/transport/carpark-availability`
+
+    axios.get(url)
+      .then(response => {
+        console.log("response", response)
+      })
+      .catch((reason) => {
+        console.log("Error", reason);
+      });
+  }, [])
+
 
   return (
     <div className="App">
