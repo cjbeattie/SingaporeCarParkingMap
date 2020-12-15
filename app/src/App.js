@@ -1,23 +1,36 @@
-import logo from './logo.svg';
 import './App.css';
+import SimpleMap from './components/SimpleMap'
+import axios from 'axios'
+// const axios = require("axios").default;
+import { useEffect } from "react";
 
 function App() {
+
+
+  const url = `http://datamall2.mytransport.sg/ltaodataservice/CarParkAvailabilityv2`
+  // const url = `http://datamall2.mytransport.sg/ltaodataservice/BusServices`
+  // const url = `https://api.data.gov.sg/v1/transport/carpark-availability`
+
+  const header = {
+    headers: {
+      AccountKey: process.env.REACT_APP_LTA_API_KEY,
+      accept: 'application/json'
+    }
+  }
+
+  // useEffect(() => {
+  axios.get(url, header)
+    .then(response => {
+      console.log("response", response)
+    })
+    .catch((reason) => {
+      console.log("Error", reason);
+    });
+  // }, [header, url])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <SimpleMap />
     </div>
   );
 }
