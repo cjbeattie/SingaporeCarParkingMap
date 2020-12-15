@@ -6,27 +6,15 @@ import { useEffect } from "react";
 
 function App() {
 
+  const url = `https://api.data.gov.sg/v1/transport/carpark-availability`
 
-  const url = `http://datamall2.mytransport.sg/ltaodataservice/CarParkAvailabilityv2`
-  // const url = `http://datamall2.mytransport.sg/ltaodataservice/BusServices`
-  // const url = `https://api.data.gov.sg/v1/transport/carpark-availability`
-
-  const header = {
-    headers: {
-      AccountKey: process.env.REACT_APP_LTA_API_KEY,
-      accept: 'application/json'
-    }
-  }
-
-  // useEffect(() => {
-  axios.get(url, header)
+  axios.get(url)
     .then(response => {
       console.log("response", response)
     })
     .catch((reason) => {
       console.log("Error", reason);
     });
-  // }, [header, url])
 
   return (
     <div className="App">
@@ -36,3 +24,22 @@ function App() {
 }
 
 export default App;
+
+// LTA Datamall API setup - revisit when I can do servers.
+
+  // const url = `http://datamall2.mytransport.sg/ltaodataservice/CarParkAvailabilityv2`
+
+  // const header = {
+  //   headers: {
+  //     AccountKey: process.env.REACT_APP_LTA_API_KEY,
+  //     accept: 'application/json'
+  //   }
+  // }
+
+  // axios.get(url, header)
+  //   .then(response => {
+  //     console.log("response", response)
+  //   })
+  //   .catch((reason) => {
+  //     console.log("Error", reason);
+  //   });
