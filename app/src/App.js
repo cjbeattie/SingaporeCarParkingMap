@@ -7,23 +7,6 @@ import LTACarparkAvailabilityOffline from './data/LTA_DataMall_Carpark_Availabil
 // import { Loader } from '@googlemaps/js-api-loader';
 
 function App() {
-
-
-  // const loader = new Loader({
-  //   apiKey: process.env.REACT_APP_GMP_API_KEY,
-  //   version: "weekly",
-  //   libraries: ["places"]
-  // });
-
-  // const mapOptions = {
-  //   // center: {
-  //   //   lat: 0,
-  //   //   lng: 0
-  //   },
-  //   zoom: 4
-  // };
-
-
   // Data.gov.sg test
   // useEffect(() => {
   //   const url = `https://api.data.gov.sg/v1/transport/carpark-availability`

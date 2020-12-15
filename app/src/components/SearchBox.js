@@ -1,14 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-// import { Loader } from '@googlemaps/js-api-loader';
-
-
-// const loader = new Loader({
-//   apiKey: process.env.REACT_APP_GMP_API_KEY,
-//   version: "weekly",
-//   libraries: ["places"]
-// });
 
 export default class SearchBox extends React.Component {
   static propTypes = {
