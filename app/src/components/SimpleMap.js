@@ -14,7 +14,12 @@ class SimpleMap extends Component {
         zoom: 12
     };
 
+
     render() {
+        let LTACarparkAvailabilityOfflineArr = this.props.LTACarparkAvailabilityOffline;
+
+        let displayedLTACarparkAvailabilityOffline = LTACarparkAvailabilityOfflineArr.map((carpark) => <Marker lat={carpark.Location.split(" ")[0]} lng={carpark.Location.split(" ")[1]} name={carpark.CarParkID} color="red" />);
+
         return (
             // Important! Always set the container height explicitly
             <div style={{ height: '100vh', width: '100%' }}>
@@ -34,6 +39,7 @@ class SimpleMap extends Component {
                         name="My Marker"
                         color="blue"
                     />
+                    {displayedLTACarparkAvailabilityOffline}
                 </GoogleMapReact>
             </div>
         );

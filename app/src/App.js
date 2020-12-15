@@ -3,10 +3,14 @@ import SimpleMap from './components/SimpleMap'
 import axios from 'axios'
 // const axios = require("axios").default;
 import { useEffect } from "react";
+import LTACarparkAvailabilityOffline from './data/LTA_DataMall_Carpark_Availability_Prettified_Combined_151220'
 
 function App() {
 
 
+
+
+  // Data.gov.sg test
   useEffect(() => {
     const url = `https://api.data.gov.sg/v1/transport/carpark-availability`
 
@@ -22,7 +26,7 @@ function App() {
 
   return (
     <div className="App">
-      <SimpleMap />
+      <SimpleMap LTACarparkAvailabilityOffline={LTACarparkAvailabilityOffline.value} />
     </div>
   );
 }
