@@ -2,21 +2,40 @@ import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 import Marker from './Marker';
 import SearchBox from './SearchBox'
-import GooglePlacesAutocomplete from 'react-google-places-autocomplete'
 
 // const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 class SimpleMap extends Component {
-    static defaultProps = {
-        center: {
-            lat: 1.3521,
-            lng: 103.8198
-        },
-        zoom: 12,
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            center: {
+                lat: 1.3521,
+                lng: 103.8198
+            },
+            zoom: 12,
+            // isLocationMarkerEnabled: false,
 
-    handleSearch() {
+        }
+    }
+    // static defaultProps = {
+    //     center: {
+    //         lat: 1.3521,
+    //         lng: 103.8198
+    //     },
+    //     zoom: 12,
+    // };
+
+    handleSearch(place) {
         console.log("searched!");
+        console.log(place);
+        this.setState({
+            center: {
+                lat: place[0].geometry.location.lat(),
+                lng: place[0].geometry.location.lng()
+            },
+            zoom: 15
+        });
     }
 
 
@@ -38,13 +57,15 @@ class SimpleMap extends Component {
                 <div>
                     <SearchBox
                         placeholder={"123 anywhere st."}
-                        onPlacesChanged={this.handleSearch} />
+                        onPlacesChanged={(place) => this.handleSearch(place)} />
                 </div>
                 <div style={{ height: '100vh', width: '100%' }}>
                     <GoogleMapReact
                         bootstrapURLKeys={{ key: process.env.REACT_APP_GMP_API_KEY }}
-                        defaultCenter={this.props.center}
-                        defaultZoom={this.props.zoom}
+                        // defaultCenter={this.props.center}
+                        // defaultZoom={this.props.zoom}
+                        center={this.state.center}
+                        zoom={this.state.zoom}
                     // yesIWantToUseGoogleMapApiInternals
                     // onGoogleApiLoaded={({ map, maps }) => this.handleApiLoaded(map, maps)}
                     >

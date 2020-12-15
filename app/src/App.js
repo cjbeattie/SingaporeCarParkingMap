@@ -1,8 +1,8 @@
 import './App.css';
 import SimpleMap from './components/SimpleMap'
-import axios from 'axios'
+// import axios from 'axios'
 // const axios = require("axios").default;
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import LTACarparkAvailabilityOffline from './data/LTA_DataMall_Carpark_Availability_Prettified_Combined_151220'
 // import { Loader } from '@googlemaps/js-api-loader';
 
