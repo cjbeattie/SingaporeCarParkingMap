@@ -11,6 +11,7 @@ import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-boots
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SearchBox from './components/SearchBox'
 import Navigation from './components/Navigation'
+// import MainMapBlock from './old-examples-master/web/flux/components/examples/x_main/main_map_block'
 
 
 
@@ -31,7 +32,7 @@ function App() {
       lat: place[0].geometry.location.lat(),
       lng: place[0].geometry.location.lng()
     });
-    setZoom(15);
+    setZoom(18);
     // this.setState({
     //   center: {
     //     lat: place[0].geometry.location.lat(),
@@ -64,6 +65,7 @@ function App() {
       <Route path="/about">
         <About />
       </Route>
+      {/* <MainMapBlock /> */}
     </div>
   );
 }

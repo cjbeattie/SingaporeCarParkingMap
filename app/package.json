@@ -9,6 +9,8 @@
     "axios": "^0.21.0",
     "bootstrap": "^4.5.3",
     "google-map-react": "^2.1.9",
+    "lodash": "^4.17.20",
+    "lodash.isempty": "^4.4.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.0",
@@ -17,6 +19,7 @@
     "react-pro-sidebar": "^0.5.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
+    "styled-components": "^5.2.1",
     "web-vitals": "^0.2.4"
   },
   "scripts": {

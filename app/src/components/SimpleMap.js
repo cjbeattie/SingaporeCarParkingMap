@@ -47,7 +47,16 @@ class SimpleMap extends Component {
     //     // use map and maps objects
     // };
 
+    _distanceToMouse = (markerPos, mousePos, markerProps) => {
+        const x = markerPos.x;
+        // because of marker non symmetric,
+        // we transform it central point to measure distance from marker circle center
+        // you can change distance function to any other distance measure
+        const y = markerPos.y;
 
+        // it's just a simple example, you can tweak distance function as you wish
+        return Math.sqrt((x - mousePos.x) * (x - mousePos.x) + (y - mousePos.y) * (y - mousePos.y));
+    }
     render() {
         let LTACarparkAvailabilityOfflineArr = this.props.LTACarparkAvailabilityOffline;
 
@@ -63,7 +72,7 @@ class SimpleMap extends Component {
                         placeholder={"123 anywhere st."}
                         onPlacesChanged={(place) => this.handleSearch(place)} />
                 </div> */}
-                <div style={{ height: '100vh', width: '100%' }}>
+                <div style={{ height: 'calc(100vh - 54px)', width: '100%' }}>
 
                     <GoogleMapReact
                         bootstrapURLKeys={{ key: process.env.REACT_APP_GMP_API_KEY }}
@@ -71,6 +80,8 @@ class SimpleMap extends Component {
                         // defaultZoom={this.props.zoom}
                         center={this.props.center}
                         zoom={this.props.zoom}
+                        hoverDistance={15}
+                        distanceToMouse={this._distanceToMouse}
                     // yesIWantToUseGoogleMapApiInternals
                     // onGoogleApiLoaded={({ map, maps }) => this.handleApiLoaded(map, maps)}
                     >
