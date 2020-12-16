@@ -3,6 +3,7 @@ import GoogleMapReact from 'google-map-react';
 import Marker from './Marker';
 import SearchBox from './SearchBox'
 
+
 // const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 class SimpleMap extends Component {
@@ -52,14 +53,17 @@ class SimpleMap extends Component {
 
         //let mySearchbox = this.handleApiLoaded();
 
+
         return (
             <>
                 <div>
                     <SearchBox
                         placeholder={"123 anywhere st."}
                         onPlacesChanged={(place) => this.handleSearch(place)} />
+                    <button>Blah</button>
                 </div>
                 <div style={{ height: '100vh', width: '100%' }}>
+
                     <GoogleMapReact
                         bootstrapURLKeys={{ key: process.env.REACT_APP_GMP_API_KEY }}
                         // defaultCenter={this.props.center}
@@ -82,6 +86,7 @@ class SimpleMap extends Component {
                             color="blue"
                         />
                         {displayedLTACarparkAvailabilityOffline}
+
                     </GoogleMapReact>
                 </div>
             </>

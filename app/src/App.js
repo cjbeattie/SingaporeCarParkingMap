@@ -4,7 +4,8 @@ import SimpleMap from './components/SimpleMap'
 // const axios = require("axios").default;
 // import { useEffect } from "react";
 import LTACarparkAvailabilityOffline from './data/LTA_DataMall_Carpark_Availability_Prettified_Combined_151220'
-// import { Loader } from '@googlemaps/js-api-loader';
+
+
 
 function App() {
   // Data.gov.sg test
