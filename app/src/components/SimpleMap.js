@@ -60,7 +60,6 @@ class SimpleMap extends Component {
                     <SearchBox
                         placeholder={"123 anywhere st."}
                         onPlacesChanged={(place) => this.handleSearch(place)} />
-                    <button>Blah</button>
                 </div>
                 <div style={{ height: '100vh', width: '100%' }}>
 
