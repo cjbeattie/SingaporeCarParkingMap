@@ -4,6 +4,9 @@ import SimpleMap from './components/SimpleMap'
 // const axios = require("axios").default;
 // import { useEffect } from "react";
 import LTACarparkAvailabilityOffline from './data/LTA_DataMall_Carpark_Availability_Prettified_Combined_151220'
+import { NavLink, Route, Switch } from 'react-router-dom'
+import About from "./About";
+
 
 
 
@@ -24,7 +27,19 @@ function App() {
 
   return (
     <div className="App">
-      <SimpleMap LTACarparkAvailabilityOffline={LTACarparkAvailabilityOffline.value} />
+      <nav>
+        <ul>
+          <li><NavLink to="/">Map</NavLink></li>
+          <li><NavLink to="/about">About</NavLink></li>
+        </ul>
+      </nav>
+
+      <Route path="/" exact>
+        <SimpleMap LTACarparkAvailabilityOffline={LTACarparkAvailabilityOffline.value} />
+      </Route>
+      <Route path="/about">
+        <About />
+      </Route>
     </div>
   );
 }
