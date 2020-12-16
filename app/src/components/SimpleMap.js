@@ -9,15 +9,17 @@ import SearchBox from './SearchBox'
 class SimpleMap extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            center: {
-                lat: 1.3521,
-                lng: 103.8198
-            },
-            zoom: 12,
-            // isLocationMarkerEnabled: false,
+        // this.state = {
+        //     center: {
+        //         lat: 1.3521,
+        //         lng: 103.8198
+        //     },
+        //     zoom: 12,
 
-        }
+
+        //     // isLocationMarkerEnabled: false,
+
+        // }
     }
     // static defaultProps = {
     //     center: {
@@ -27,17 +29,17 @@ class SimpleMap extends Component {
     //     zoom: 12,
     // };
 
-    handleSearch(place) {
-        console.log("searched!");
-        console.log(place);
-        this.setState({
-            center: {
-                lat: place[0].geometry.location.lat(),
-                lng: place[0].geometry.location.lng()
-            },
-            zoom: 15
-        });
-    }
+    // handleSearch(place) {
+    //     console.log("searched!");
+    //     console.log(place);
+    //     this.setState({
+    //         center: {
+    //             lat: place[0].geometry.location.lat(),
+    //             lng: place[0].geometry.location.lng()
+    //         },
+    //         zoom: 15
+    //     });
+    // }
 
 
 
@@ -56,19 +58,19 @@ class SimpleMap extends Component {
 
         return (
             <>
-                <div>
+                {/* <div>
                     <SearchBox
                         placeholder={"123 anywhere st."}
                         onPlacesChanged={(place) => this.handleSearch(place)} />
-                </div>
+                </div> */}
                 <div style={{ height: '100vh', width: '100%' }}>
 
                     <GoogleMapReact
                         bootstrapURLKeys={{ key: process.env.REACT_APP_GMP_API_KEY }}
                         // defaultCenter={this.props.center}
                         // defaultZoom={this.props.zoom}
-                        center={this.state.center}
-                        zoom={this.state.zoom}
+                        center={this.props.center}
+                        zoom={this.props.zoom}
                     // yesIWantToUseGoogleMapApiInternals
                     // onGoogleApiLoaded={({ map, maps }) => this.handleApiLoaded(map, maps)}
                     >
