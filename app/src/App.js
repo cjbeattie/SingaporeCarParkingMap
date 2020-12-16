@@ -27,7 +27,7 @@ function App() {
 
   const handleSearch = (place) => {
     console.log("searched!");
-    console.log(place);
+    console.log("place", place);
     setCenter({
       lat: place[0].geometry.location.lat(),
       lng: place[0].geometry.location.lng()

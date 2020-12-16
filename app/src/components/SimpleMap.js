@@ -47,20 +47,28 @@ class SimpleMap extends Component {
     //     // use map and maps objects
     // };
 
-    _distanceToMouse = (markerPos, mousePos, markerProps) => {
-        const x = markerPos.x;
-        // because of marker non symmetric,
-        // we transform it central point to measure distance from marker circle center
-        // you can change distance function to any other distance measure
-        const y = markerPos.y;
+    // _distanceToMouse = (markerPos, mousePos, markerProps) => {
+    //     const x = markerPos.x;
+    //     // because of marker non symmetric,
+    //     // we transform it central point to measure distance from marker circle center
+    //     // you can change distance function to any other distance measure
+    //     const y = markerPos.y;
 
-        // it's just a simple example, you can tweak distance function as you wish
-        return Math.sqrt((x - mousePos.x) * (x - mousePos.x) + (y - mousePos.y) * (y - mousePos.y));
-    }
+    //     // it's just a simple example, you can tweak distance function as you wish
+    //     return Math.sqrt((x - mousePos.x) * (x - mousePos.x) + (y - mousePos.y) * (y - mousePos.y));
+    // }
     render() {
         let LTACarparkAvailabilityOfflineArr = this.props.LTACarparkAvailabilityOffline;
 
-        let displayedLTACarparkAvailabilityOffline = LTACarparkAvailabilityOfflineArr.map((carpark) => <Marker lat={carpark.Location.split(" ")[0]} lng={carpark.Location.split(" ")[1]} name={carpark.CarParkID} color="red" text="yay text" tooltip="yay tooltip" />);
+        let displayedLTACarparkAvailabilityOffline = LTACarparkAvailabilityOfflineArr.map(
+            (carpark) => <Marker
+                lat={carpark.Location.split(" ")[0]}
+                lng={carpark.Location.split(" ")[1]}
+                name={carpark.CarParkID}
+                color="red"
+                carparkInfo={carpark}
+                text="yay text"
+                tooltip={carpark} />);
 
         //let mySearchbox = this.handleApiLoaded();
 
