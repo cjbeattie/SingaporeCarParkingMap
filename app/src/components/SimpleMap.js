@@ -60,7 +60,7 @@ class SimpleMap extends Component {
     render() {
         let LTACarparkAvailabilityOfflineArr = this.props.LTACarparkAvailabilityOffline;
 
-        let displayedLTACarparkAvailabilityOffline = LTACarparkAvailabilityOfflineArr.map((carpark) => <Marker lat={carpark.Location.split(" ")[0]} lng={carpark.Location.split(" ")[1]} name={carpark.CarParkID} color="red" />);
+        let displayedLTACarparkAvailabilityOffline = LTACarparkAvailabilityOfflineArr.map((carpark) => <Marker lat={carpark.Location.split(" ")[0]} lng={carpark.Location.split(" ")[1]} name={carpark.CarParkID} color="red" text="yay text" tooltip="yay tooltip" />);
 
         //let mySearchbox = this.handleApiLoaded();
 
