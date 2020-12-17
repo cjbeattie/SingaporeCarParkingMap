@@ -1,9 +1,12 @@
 .marker {
-    position: absolute;
+    position: relative;
     top: 50%;
     left: 50%;
-    width: 8px;
-    height: 8px;
+    /* width: 8px; */
+    /* height: 8px; */
+    width: 2.5em;
+    height: 2.5em;
+    color: #fff;
     background-color: #000;
     border: 1px solid #fff;
     border-radius: 100%;
@@ -24,7 +27,7 @@
     left: 50%;
     width: 8px;
     height: 8px;
-    background-color: #000 !important;
+    background-color:blue !important;
     border: 1px solid #fff;
     border-radius: 100%;
     user-select: none;
@@ -33,6 +36,29 @@
       z-index: 1;
     } */
   }
+
+  /* .circle {
+    background-color: #d83b01;
+    border-radius: 50%;
+    color: #fff;
+    height: 2.5em;
+    position: relative;
+    width: 2.5em;
+
+    border: 1px solid transparent;
+  } */
+
+  .circleText {
+    text-align: center;
+    height: 50%;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    font-weight: bold;
+}
+
 /* 
   body {
   padding: 0;

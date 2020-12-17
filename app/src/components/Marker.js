@@ -40,7 +40,11 @@ const Marker = (props) => {
                 onClick={handleClick}
                 style={{ backgroundColor: color, cursor: 'pointer' }}
                 title={carparkInfo.CarParkID}
+            // text={availableLots ? { availableLots } : ""}
             >
+                <span className="circleText">
+                    {availableLots ? availableLots : ""}
+                </span>
             </div>
         </OverlayTrigger>
 
