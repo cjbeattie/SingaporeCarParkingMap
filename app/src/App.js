@@ -1,22 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import './App.css';
-import SimpleMap from './components/SimpleMap'
+import React, { useState } from 'react';
+import { Route } from 'react-router-dom'
 // import axios from 'axios'
-// const axios = require("axios").default;
-// import { useEffect } from "react";
-import LTACarparkAvailabilityOffline from './data/LTA_DataMall_Carpark_Availability_Prettified_Combined_151220'
-import { NavLink, Route, Switch } from 'react-router-dom'
-import About from "./About";
-import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
+import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import SearchBox from './components/SearchBox'
 import Navigation from './components/Navigation'
-// import MainMapBlock from './old-examples-master/web/flux/components/examples/x_main/main_map_block'
-
-
-
-
-
+import SimpleMap from './components/SimpleMap'
+import About from "./About";
+import LTACarparkAvailabilityOffline from './data/LTA_DataMall_Carpark_Availability_Prettified_Combined_151220'
 
 function App() {
   const [center, setCenter] = useState({
@@ -33,16 +23,25 @@ function App() {
       lng: place[0].geometry.location.lng()
     });
     setZoom(18);
-    // this.setState({
-    //   center: {
-    //     lat: place[0].geometry.location.lat(),
-    //     lng: place[0].geometry.location.lng()
-    //   },
-    //   zoom: 15
-    // });
   }
 
-  // Data.gov.sg test
+  return (
+    <div className="App">
+      <Navigation onSearchClick={handleSearch} />
+      <Route path="/" exact>
+        <SimpleMap LTACarparkAvailabilityOffline={LTACarparkAvailabilityOffline.value} center={center} zoom={zoom} />
+      </Route>
+      <Route path="/about">
+        <About />
+      </Route>
+    </div>
+  );
+}
+
+export default App;
+
+
+// Data.gov.sg test - Put in the App() above the return
   // useEffect(() => {
   //   const url = `https://api.data.gov.sg/v1/transport/carpark-availability`
 
@@ -55,22 +54,6 @@ function App() {
   //     });
   // }, [])
 
-
-  return (
-    <div className="App">
-      <Navigation onSearchClick={handleSearch} />
-      <Route path="/" exact>
-        <SimpleMap LTACarparkAvailabilityOffline={LTACarparkAvailabilityOffline.value} center={center} zoom={zoom} />
-      </Route>
-      <Route path="/about">
-        <About />
-      </Route>
-      {/* <MainMapBlock /> */}
-    </div>
-  );
-}
-
-export default App;
 
 // LTA Datamall API setup - revisit when I can do servers.
 

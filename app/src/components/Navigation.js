@@ -1,27 +1,13 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom'
 import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SearchBox from './SearchBox'
-import { NavLink, Route, Switch } from 'react-router-dom'
-
-
 
 class Navigation extends Component {
     constructor(props) {
         super(props);
     }
-
-    // handleSearch(place) {
-    //     console.log("searched!");
-    //     console.log(place);
-    //     this.setState({
-    //         center: {
-    //             lat: place[0].geometry.location.lat(),
-    //             lng: place[0].geometry.location.lng()
-    //         },
-    //         zoom: 15
-    //     });
-    // }
 
     render() {
         return (

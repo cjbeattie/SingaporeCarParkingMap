@@ -1,28 +1,19 @@
-// from https://levelup.gitconnected.com/reactjs-google-maps-with-custom-marker-ece0c7d184c4
-
 import React from 'react';
-import './Marker.css';
 import { Popover, OverlayTrigger } from 'react-bootstrap';
+import './Marker.css';
 
 const Marker = (props) => {
-    const { color, carparkInfo, name, text, tooltip, $hover } = props;
+    const { color, carparkInfo, $hover } = props;
 
     if (!carparkInfo) {
         return (<div></div>)
     }
 
     const handleClick = () => {
-        console.log(`You clicked on ${tooltip}`);
+        console.log(`You clicked on ${carparkInfo.CarParkID}`);
     };
 
-    const constructTooltip = () => {
-        return (
-            "hi"
-        );
-
-    }
-
-    //console.log("MARKER IS RENDERING!!! ", carparkInfo.CarParkID);
+    console.log("MARKER IS RENDERING!!! ");
 
     const popover = (
         <Popover id="popover-basic">
@@ -40,22 +31,14 @@ const Marker = (props) => {
         // </Popover>
     );
 
-
-    // const greatPlaceStyleHover = { backgroundColor: "green !important" };
-    // const greatPlaceStyle = { backgroundColor: "blue !important" };
-
-    // const style = props.$hover ? greatPlaceStyleHover : greatPlaceStyle;
     return (
         <OverlayTrigger trigger="click" placement="right" overlay={popover}>
 
             <div className={$hover ? "marker hover" : "marker"}
                 onClick={handleClick}
                 style={{ backgroundColor: color, cursor: 'pointer' }}
-                title={constructTooltip()}
+                title={carparkInfo.CarParkID}
             >
-                {/* <span className="circleText" title={tooltip}>
-                {text}
-            </span> */}
             </div>
         </OverlayTrigger>
 
