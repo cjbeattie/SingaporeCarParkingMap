@@ -18,8 +18,7 @@ function App() {
   const [HDB_CarparkAvailabilityData, setHDB_CarparkAvailabilityData] = useState(null);
   const [HDB_AvailabilityDataAvailable, setHDB_AvailabilityDataAvailable] = useState(false);
 
-  // Data.gov.sg
-  useEffect(() => {
+  const getRealtimeData = () => {
     const url = `https://api.data.gov.sg/v1/transport/carpark-availability`
 
     axios.get(url)
@@ -31,16 +30,43 @@ function App() {
       .catch((reason) => {
         console.log("Error", reason);
       });
+
+    console.log("Realtime data updated!");
+  }
+  // Data.gov.sg Carpark Availability Data
+  useEffect(() => {
+    getRealtimeData();
+    // const url = `https://api.data.gov.sg/v1/transport/carpark-availability`
+
+    // axios.get(url)
+    //   .then(response => {
+    //     console.log("carpark availability response:", response.data.items[0].carpark_data)
+    //     setHDB_CarparkAvailabilityData(response.data.items[0].carpark_data);
+    //     setHDB_AvailabilityDataAvailable(true);
+    //   })
+    //   .catch((reason) => {
+    //     console.log("Error", reason);
+    //   });
   }, [])
 
   const handleSearchFn = (place) => {
-    console.log("searched!");
+    getRealtimeData();
+    console.log("handleSearchFn() in App.js called");
     console.log("place", place);
     setCenter({
       lat: place[0].geometry.location.lat(),
       lng: place[0].geometry.location.lng()
     });
     setZoom(16);
+  }
+
+  const handleBrandClick = () => {
+    console.log("Yay brand clicked in a function!")
+    setCenter({
+      lat: 1.3521,
+      lng: 103.8198
+    })
+    setZoom(12);
   }
 
   const filterOnlyCars = () => {
@@ -55,7 +81,7 @@ function App() {
 
   return (
     <div className="App">
-      <Navigation handleSearchFn={handleSearchFn} />
+      <Navigation handleSearchFn={handleSearchFn} handleBrandClick={handleBrandClick} />
       <Route path="/" exact>
         <SimpleMap
           // LTACarparkAvailabilityOffline={LTACarparkAvailabilityOffline.value}

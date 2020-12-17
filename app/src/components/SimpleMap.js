@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 import Marker from './Marker';
+import CenterMarker from './CenterMarker';
 import { isPointWithinRadius } from 'geolib';
 
 class SimpleMap extends Component {
@@ -83,12 +84,10 @@ class SimpleMap extends Component {
                     // hoverDistance={15}
                     // distanceToMouse={this._distanceToMouse}
                     >
-                        {/* <Marker
-                            lat={1.3521}
-                            lng={103.8198}
-                            name="My Marker"
-                            color="blue"
-                        /> */}
+                        <CenterMarker
+                            lat={this.props.center.lat}
+                            lng={this.props.center.lng}
+                        />
                         {this.getMarkers()}
                     </GoogleMapReact>
                 </div>

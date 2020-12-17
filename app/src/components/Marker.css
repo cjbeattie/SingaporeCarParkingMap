@@ -83,6 +83,21 @@
     font-weight: bold;
 }
 
+.centerMarker {
+  position: relative;
+    top: 50%;
+    left: 50%;
+    /* width: 8px; */
+    /* height: 8px; */
+    width: 1em;
+    height: 1em;
+    color: #fff;
+    background-color: blue;
+    border: 1px solid #fff;
+    border-radius: 100%;
+    user-select: none;
+    transform: translate(-50%, -50%);
+}
 /* 
   body {
   padding: 0;

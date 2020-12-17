@@ -11,6 +11,7 @@ export default class SearchBox extends React.Component {
     return <input ref="input" {...this.props} type="text" />;
   }
   onPlacesChanged = () => {
+    console.log("onPlacesChanged() in SearchBox.js called")
     if (this.props.onPlacesChanged) {
       this.props.onPlacesChanged(this.searchBox.getPlaces());
     }
