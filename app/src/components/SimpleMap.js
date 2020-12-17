@@ -35,9 +35,9 @@ class SimpleMap extends Component {
                         if (availableLots >= 50) {
                             carpark["color"] = "green";
                         } else if (availableLots >= 10 && availableLots < 50) {
-                            carpark["color"] = "yellow";
+                            carpark["color"] = "#edac2b";
                         } else if (availableLots > 0 && availableLots < 10) {
-                            carpark["color"] = "orange";
+                            carpark["color"] = "#ed622b";
                         } else if (availableLots === 0) {
                             carpark["color"] = "red";
                         } else {

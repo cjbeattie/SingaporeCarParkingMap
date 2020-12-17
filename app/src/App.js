@@ -43,12 +43,23 @@ function App() {
     setZoom(16);
   }
 
+  const filterOnlyCars = () => {
+    let tempArr = [];
+    for (const carpark of LTACarparkAvailabilityOffline.value) {
+      if (carpark.LotType = "C") {
+        tempArr.push(carpark);
+      }
+    }
+    return tempArr;
+  }
+
   return (
     <div className="App">
       <Navigation handleSearchFn={handleSearchFn} />
       <Route path="/" exact>
         <SimpleMap
-          LTACarparkAvailabilityOffline={LTACarparkAvailabilityOffline.value}
+          // LTACarparkAvailabilityOffline={LTACarparkAvailabilityOffline.value}
+          LTACarparkAvailabilityOffline={filterOnlyCars()}
           HDB_CarparkAvailabilityData={HDB_CarparkAvailabilityData}
           HDB_AvailabilityDataAvailable={HDB_AvailabilityDataAvailable}
           center={center}
