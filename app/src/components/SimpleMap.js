@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 import Marker from './Marker';
+import { isPointWithinRadius } from 'geolib';
 
 class SimpleMap extends Component {
     // constructor(props) {
@@ -9,7 +10,33 @@ class SimpleMap extends Component {
 
     getMarkers() {
         console.log("getMarkers() in SimpleMap.js called")
-        let displayedLTACarparkAvailabilityOffline = this.props.LTACarparkAvailabilityOffline.map(
+
+        const displayedCarparks = [];
+        let displayedCarparksOutput = [];
+        let displayedLTACarparkAvailabilityOffline = this.props.LTACarparkAvailabilityOffline;
+
+        // isPointWithinRadius(point, centerPoint, radius)
+        // isPointWithinRadius(
+        //     { latitude: 51.525, longitude: 7.4575 },
+        //     { latitude: 51.5175, longitude: 7.4678 },
+        //     5000
+        // );
+
+        for (const carpark of displayedLTACarparkAvailabilityOffline) {
+            if (isPointWithinRadius(
+                { latitude: carpark.Location.split(" ")[0], longitude: carpark.Location.split(" ")[1] }, // carpark coordinates
+                { latitude: this.props.center.lat, longitude: this.props.center.lng }, // center coordinates
+                1000 //checking radius in metres
+            )) {
+                displayedCarparks.push(carpark);
+                // console.log("carpark displayed: ", carpark)
+            }
+        }
+
+        console.log(displayedCarparks);
+
+        // let displayedLTACarparkAvailabilityOffline = this.props.LTACarparkAvailabilityOffline.map(
+        displayedCarparksOutput = displayedCarparks.map(
             (carpark) => <Marker
                 lat={carpark.Location.split(" ")[0]}
                 lng={carpark.Location.split(" ")[1]}
@@ -17,11 +44,13 @@ class SimpleMap extends Component {
                 carparkInfo={carpark}
                 key={carpark.CarParkID + carpark.LotType} />);
 
-        return displayedLTACarparkAvailabilityOffline;
+        return displayedCarparksOutput;
     }
+
 
     render() {
         console.log("SIMPLE MAP IS RENDERING!!!!")
+
 
         return (
             <>
