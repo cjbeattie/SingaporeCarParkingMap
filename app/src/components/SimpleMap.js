@@ -19,7 +19,7 @@ class SimpleMap extends Component {
             if (isPointWithinRadius(
                 { latitude: carpark.Location.split(" ")[0], longitude: carpark.Location.split(" ")[1] }, // carpark coordinates
                 { latitude: this.props.center.lat, longitude: this.props.center.lng }, // center coordinates
-                1000 //checking radius in metres
+                10000 //checking radius in metres
             )) {
                 displayedCarparks.push(carpark);
                 // console.log("carpark displayed: ", carpark)

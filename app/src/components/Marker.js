@@ -1,6 +1,8 @@
 import React from 'react';
 import { Popover, OverlayTrigger } from 'react-bootstrap';
 import './Marker.css';
+import { pure } from 'recompose';
+
 
 const Marker = (props) => {
     const { color, carparkInfo, $hover } = props;
@@ -44,5 +46,5 @@ const Marker = (props) => {
     );
 };
 
-export default Marker;
+export default pure(Marker);
 
