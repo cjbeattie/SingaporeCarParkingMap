@@ -18,3 +18,11 @@ code {
   height: 100vh;
 
 }
+
+#searchform {
+  width: 80%;
+}
+
+#searchbar {
+  width: 60%;
+}
