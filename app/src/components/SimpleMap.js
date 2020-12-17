@@ -8,6 +8,7 @@ class SimpleMap extends Component {
     // }
 
     getMarkers() {
+        console.log("getMarkers() in SimpleMap.js called")
         let displayedLTACarparkAvailabilityOffline = this.props.LTACarparkAvailabilityOffline.map(
             (carpark) => <Marker
                 lat={carpark.Location.split(" ")[0]}
