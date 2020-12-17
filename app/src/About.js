@@ -9,8 +9,11 @@ const About = () => {
     return (
         <div id="AboutPage">
             <h2>About</h2>
+            <br />
             <p>Made by Courtney Beattie</p>
-            <p>Data from LTA</p>
+            <br />
+            <p>Carpark location data from <a href="https://www.mytransport.sg/content/mytransport/home/dataMall.html">LTA Datamall</a></p>
+            <p>Carpark availability data from <a href="https://data.gov.sg/">data.gov.sg</a></p>
         </div>
     )
 }
