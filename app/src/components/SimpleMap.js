@@ -6,6 +6,7 @@ import SearchBox from './SearchBox'
 
 // const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
+
 class SimpleMap extends Component {
     constructor(props) {
         super(props);
@@ -57,10 +58,9 @@ class SimpleMap extends Component {
     //     // it's just a simple example, you can tweak distance function as you wish
     //     return Math.sqrt((x - mousePos.x) * (x - mousePos.x) + (y - mousePos.y) * (y - mousePos.y));
     // }
-    render() {
-        let LTACarparkAvailabilityOfflineArr = this.props.LTACarparkAvailabilityOffline;
 
-        let displayedLTACarparkAvailabilityOffline = LTACarparkAvailabilityOfflineArr.map(
+    getMarkers() {
+        let displayedLTACarparkAvailabilityOffline = this.props.LTACarparkAvailabilityOffline.map(
             (carpark) => <Marker
                 lat={carpark.Location.split(" ")[0]}
                 lng={carpark.Location.split(" ")[1]}
@@ -68,7 +68,16 @@ class SimpleMap extends Component {
                 color="red"
                 carparkInfo={carpark}
                 text="yay text"
-                tooltip={carpark} />);
+                tooltip="tooltip text" />);
+
+        return displayedLTACarparkAvailabilityOffline;
+    }
+
+
+
+    render() {
+        console.log("SIMPLE MAP IS RENDERING!!!!")
+
 
         //let mySearchbox = this.handleApiLoaded();
 
@@ -105,7 +114,7 @@ class SimpleMap extends Component {
                             name="My Marker"
                             color="blue"
                         />
-                        {displayedLTACarparkAvailabilityOffline}
+                        {this.getMarkers()}
 
                     </GoogleMapReact>
                 </div>

@@ -7,6 +7,10 @@ import { Popover, OverlayTrigger } from 'react-bootstrap';
 const Marker = (props) => {
     const { color, carparkInfo, name, text, tooltip, $hover } = props;
 
+    if (!carparkInfo) {
+        return (<div></div>)
+    }
+
     const handleClick = () => {
         console.log(`You clicked on ${tooltip}`);
     };
@@ -18,20 +22,22 @@ const Marker = (props) => {
 
     }
 
+    //console.log("MARKER IS RENDERING!!! ", carparkInfo.CarParkID);
+
     const popover = (
-        // <Popover id="popover-basic">
-        //     <Popover.Title as="h3">{carparkInfo.CarParkID}</Popover.Title>
-        //     <Popover.Content>
-        //         And here's some <strong>amazing</strong> content. It's very engaging. right?
-        //         {carparkInfo.Development}
-        //     </Popover.Content>
-        // </Popover>
         <Popover id="popover-basic">
-            <Popover.Title as="h3">CARPARK INFO</Popover.Title>
+            <Popover.Title as="h3">{carparkInfo.CarParkID}</Popover.Title>
             <Popover.Content>
                 And here's some <strong>amazing</strong> content. It's very engaging. right?
+                {carparkInfo.Development}
             </Popover.Content>
         </Popover>
+        // <Popover id="popover-basic">
+        //     <Popover.Title as="h3">CARPARK INFO</Popover.Title>
+        //     <Popover.Content>
+        //         And here's some <strong>amazing</strong> content. It's very engaging. right?
+        //     </Popover.Content>
+        // </Popover>
     );
 
 
