@@ -53,6 +53,7 @@ This was my first self-led project in React using 3rd party components. The docu
 - Availability data should be taken from LTA DataMall instead of Data.gov.sg. The latter only has availability information for HDB carparks, the former has availability for URA & LTA carparks too. There were some issues with LTA DataMall data retrieval however in this frontend-only format, so this should be updated in future.
 - There are other small carparking datasets which would be nice to add, e.g. NParks and URA Season Parking.
 - Allowing the user to select the radius that they want to search around would be ideal.
+- Generally anything that doesn't behave like Google Maps is highly annoying as that UX is so ingrained in me!
 
 ## APIs Used
 
