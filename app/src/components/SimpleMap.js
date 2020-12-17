@@ -15,13 +15,6 @@ class SimpleMap extends Component {
         let displayedCarparksOutput = [];
         let displayedLTACarparkAvailabilityOffline = this.props.LTACarparkAvailabilityOffline;
 
-        // isPointWithinRadius(point, centerPoint, radius)
-        // isPointWithinRadius(
-        //     { latitude: 51.525, longitude: 7.4575 },
-        //     { latitude: 51.5175, longitude: 7.4678 },
-        //     5000
-        // );
-
         for (const carpark of displayedLTACarparkAvailabilityOffline) {
             if (isPointWithinRadius(
                 { latitude: carpark.Location.split(" ")[0], longitude: carpark.Location.split(" ")[1] }, // carpark coordinates
