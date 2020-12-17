@@ -35,7 +35,7 @@ const Marker = (props) => {
     );
 
     return (
-        <OverlayTrigger trigger="click" placement="right" overlay={popover}>
+        <OverlayTrigger trigger="click" rootClose placement="right" overlay={popover}>
             <div className={$hover ? "marker hover" : "marker"}
                 onClick={handleClick}
                 style={{ backgroundColor: color, cursor: 'pointer' }}
