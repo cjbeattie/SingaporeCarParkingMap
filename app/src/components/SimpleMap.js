@@ -44,6 +44,7 @@ class SimpleMap extends Component {
                         } else {
                             console.log("Error in calculating colour for " + carpark.CarParkID)
                         }
+                        // console.log("carparkID: ", carpark.CarParkID)
                     }
                 }
 
@@ -52,7 +53,7 @@ class SimpleMap extends Component {
         }
 
 
-        console.log(displayedCarparks);
+        console.log("DisplayedCarparks", displayedCarparks);
 
         // let displayedLTACarparkAvailabilityOffline = this.props.LTACarparkAvailabilityOffline.map(
         displayedCarparksOutput = displayedCarparks.map(
@@ -63,8 +64,9 @@ class SimpleMap extends Component {
                 availableLots={carpark.availableLots}
                 numLots={carpark.numLots}
                 carparkInfo={carpark}
-                key={carpark.CarParkID + carpark.LotType} />);
-
+                key={carpark.CarParkID} />);
+        // key = { carpark.CarParkID + carpark.LotType } />);
+        console.log("^^^^displayedCarparksOutput", displayedCarparksOutput)
         return displayedCarparksOutput;
     }
 
