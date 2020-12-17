@@ -42,7 +42,7 @@ The allotted time was 4 days. An extra day was spent in pre-production to resese
 
 This was my first self-led project in React using 3rd party components. The documentation of those components was poor so a lot of trial-and-error and googling had to be done.
 
-### Unsolved problems
+### Unsolved problems and wish list
 
 - A bug where occasionally some markers stick to the viewport when the map is dragged.
 - Searchbox allows you to search and return a map anywhere in the world, not just Singapore.
@@ -52,6 +52,7 @@ This was my first self-led project in React using 3rd party components. The docu
 - I want to eventually have markers showing over the whole of Singapore.
 - Availability data should be taken from LTA DataMall instead of Data.gov.sg. The latter only has availability information for HDB carparks, the former has availability for URA & LTA carparks too.
 - There are other small carparking datasets which would be nice to add, e.g. NParks and URA Season Parking.
+- Allowing the user to select the radius that they want to search around would be ideal.
 
 ## APIs Used
 
