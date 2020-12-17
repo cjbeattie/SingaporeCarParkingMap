@@ -31,6 +31,18 @@ class SimpleMap extends Component {
                     if (carpark.CarParkID === availabilityData.carpark_number) {
                         carpark["availableLots"] = availabilityData.carpark_info[0].lots_available;
                         carpark["numLots"] = availabilityData.carpark_info[0].total_lots;
+                        const availableLots = parseInt(carpark.availableLots);
+                        if (availableLots >= 50) {
+                            carpark["color"] = "green";
+                        } else if (availableLots >= 10 && availableLots < 50) {
+                            carpark["color"] = "yellow";
+                        } else if (availableLots > 0 && availableLots < 10) {
+                            carpark["color"] = "orange";
+                        } else if (availableLots === 0) {
+                            carpark["color"] = "red";
+                        } else {
+                            console.log("Error in calculating colour for " + carpark.CarParkID)
+                        }
                     }
                 }
 
@@ -46,7 +58,7 @@ class SimpleMap extends Component {
             (carpark) => <Marker
                 lat={carpark.Location.split(" ")[0]}
                 lng={carpark.Location.split(" ")[1]}
-                color={carpark.availableLots ? "green" : "red"}
+                color={carpark.color ? carpark.color : "black"}
                 availableLots={carpark.availableLots}
                 numLots={carpark.numLots}
                 carparkInfo={carpark}
