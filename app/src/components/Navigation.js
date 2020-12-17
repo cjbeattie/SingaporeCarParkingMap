@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom'
-import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
+import { Navbar, Nav, Form, } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SearchBox from './SearchBox'
 
 class Navigation extends Component {
-    constructor(props) {
-        super(props);
-    }
+    // constructor(props) {
+    //     super(props);
+    // }
 
     render() {
         return (
@@ -31,8 +31,8 @@ class Navigation extends Component {
                         {/* <FormControl type="text" placeholder="Search" className="mr-sm-2" /> */}
                         <SearchBox
                             placeholder={"Enter address"}
-                            onPlacesChanged={(place) => this.props.onSearchClick(place)}
-                            classname="mr-sm-2" />
+                            onPlacesChanged={(place) => this.props.handleSearchFn(place)}
+                            className="mr-sm-2" />
                         {/* <Button variant="outline-success">Search</Button> */}
                     </Form>
                 </Navbar.Collapse>

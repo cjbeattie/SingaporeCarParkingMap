@@ -3,9 +3,9 @@ import GoogleMapReact from 'google-map-react';
 import Marker from './Marker';
 
 class SimpleMap extends Component {
-    constructor(props) {
-        super(props);
-    }
+    // constructor(props) {
+    //     super(props);
+    // }
 
     getMarkers() {
         let displayedLTACarparkAvailabilityOffline = this.props.LTACarparkAvailabilityOffline.map(
@@ -13,7 +13,8 @@ class SimpleMap extends Component {
                 lat={carpark.Location.split(" ")[0]}
                 lng={carpark.Location.split(" ")[1]}
                 color="red"
-                carparkInfo={carpark} />);
+                carparkInfo={carpark}
+                key={carpark.CarParkID + carpark.LotType} />);
 
         return displayedLTACarparkAvailabilityOffline;
     }
@@ -29,8 +30,8 @@ class SimpleMap extends Component {
                         bootstrapURLKeys={{ key: process.env.REACT_APP_GMP_API_KEY }}
                         center={this.props.center}
                         zoom={this.props.zoom}
-                        hoverDistance={15}
-                        distanceToMouse={this._distanceToMouse}
+                    // hoverDistance={15}
+                    // distanceToMouse={this._distanceToMouse}
                     >
                         {/* <Marker
                             lat={1.3521}

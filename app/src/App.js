@@ -15,7 +15,7 @@ function App() {
   });
   const [zoom, setZoom] = useState(12);
 
-  const handleSearch = (place) => {
+  const handleSearchFn = (place) => {
     console.log("searched!");
     console.log("place", place);
     setCenter({
@@ -27,7 +27,7 @@ function App() {
 
   return (
     <div className="App">
-      <Navigation onSearchClick={handleSearch} />
+      <Navigation handleSearchFn={handleSearchFn} />
       <Route path="/" exact>
         <SimpleMap LTACarparkAvailabilityOffline={LTACarparkAvailabilityOffline.value} center={center} zoom={zoom} />
       </Route>
