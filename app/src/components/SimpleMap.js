@@ -9,22 +9,35 @@ class SimpleMap extends Component {
     // }
 
     getMarkers() {
+        if (!this.props.HDB_AvailabilityDataAvailable) {
+            return;
+        }
+
         console.log("getMarkers() in SimpleMap.js called")
 
         const displayedCarparks = [];
         let displayedCarparksOutput = [];
         let displayedLTACarparkAvailabilityOffline = this.props.LTACarparkAvailabilityOffline;
 
+
+        // LTA Carparks
         for (const carpark of displayedLTACarparkAvailabilityOffline) {
             if (isPointWithinRadius(
                 { latitude: carpark.Location.split(" ")[0], longitude: carpark.Location.split(" ")[1] }, // carpark coordinates
                 { latitude: this.props.center.lat, longitude: this.props.center.lng }, // center coordinates
-                10000 //checking radius in metres
+                1000 //checking radius in metres
             )) {
+                for (const availabilityData of this.props.HDB_CarparkAvailabilityData) {
+                    if (carpark.CarParkID === availabilityData.carpark_number) {
+                        carpark["availableLots"] = availabilityData.carpark_info[0].lots_available;
+                        carpark["numLots"] = availabilityData.carpark_info[0].total_lots;
+                    }
+                }
+
                 displayedCarparks.push(carpark);
-                // console.log("carpark displayed: ", carpark)
             }
         }
+
 
         console.log(displayedCarparks);
 
@@ -33,7 +46,9 @@ class SimpleMap extends Component {
             (carpark) => <Marker
                 lat={carpark.Location.split(" ")[0]}
                 lng={carpark.Location.split(" ")[1]}
-                color="red"
+                color={carpark.availableLots ? "green" : "red"}
+                availableLots={carpark.availableLots}
+                numLots={carpark.numLots}
                 carparkInfo={carpark}
                 key={carpark.CarParkID + carpark.LotType} />);
 

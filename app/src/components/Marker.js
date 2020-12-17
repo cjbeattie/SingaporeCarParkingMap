@@ -5,11 +5,11 @@ import { pure } from 'recompose';
 
 
 const Marker = (props) => {
-    const { color, carparkInfo, $hover } = props;
+    const { color, carparkInfo, availableLots, numLots, $hover } = props;
 
-    if (!carparkInfo) {
-        return (<div></div>)
-    }
+    // if (!carparkInfo) {
+    //     return (<div></div>)
+    // }
 
     const handleClick = () => {
         console.log(`You clicked on ${carparkInfo.CarParkID}`);
@@ -19,10 +19,11 @@ const Marker = (props) => {
 
     const popover = (
         <Popover id="popover-basic">
-            <Popover.Title as="h3">{carparkInfo.CarParkID}</Popover.Title>
+            <Popover.Title as="h3">{carparkInfo.Development}</Popover.Title>
             <Popover.Content>
-                And here's some <strong>amazing</strong> content. It's very engaging. right?
-                {carparkInfo.Development}
+                <strong>ID: </strong>{carparkInfo.CarParkID}<br />
+                <strong>Total Number of Lots: </strong>{numLots ? numLots : carparkInfo.AvailableLots}<br />
+                {availableLots ? <><strong>Number of Available Lots: </strong>{availableLots}</> : <><strong>Number of Available Lots: </strong>Unavailable</>}
             </Popover.Content>
         </Popover>
         // <Popover id="popover-basic">
