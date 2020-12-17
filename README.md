@@ -1,68 +1,66 @@
 # Singapore Car Parking Map
+[Link to site](https://ga-project2-react-app.vercel.app/ "Link to site") 
 
-One Paragraph of project description goes here
+A map that shows car park location and availability in Singapore.
 
 ## Description
 
-A description of your project. Explain what is the project about and what is the use for it.
+Google Maps is the most popular map tool, but the information on car parking in Singapore is minimal. The Singapore Government has put good information online through their API and some websites have implemented this, but the user experience is poor. E.g. SG Car Mart, the map doesn’t fit the window, searching for a location in their search bar doesn’t automatically zoom in on the results.
 
-### Technical Used
-What technologies you used that helped you build this project. 
+This is an attempt to use Google Maps API to create a map with the same popular UX, but overlay it with more useful carparking data from the Singapore Government.
+It allows the user to input an address and show car parks within the radius at that location, as well as how many carparks are available at each.
 
-```
-Example:
-
+### Technologies Used
 - React
-- Bootstrap with react
-- Ajax (axios) for API
-- etc..
-```
+- Axios for API
+- Google Map React
+- React Bootstrap
+- Vercel for deployment
+- JavaScript, JSX, HTML, CSS
 
 ### Wireframes
 
-Your step by step planning sketch of your project, that you can post them as an image in here.
+This is is how I originally imagined it. My final version has more information available on the carparks themselves but doesn't (yet) allow the user to select their radius.
 ![Wireframe](/documentation/Wireframe.png)
 
 ### User Stories
 
-A story of the project user, that explains the use of the project.
+As a user:
+- I want to be able to search for car parking information and have the results displayed on a map.
+- I want to see the most relevant results shown on the map based on an address I supply and zoomed in to see the detail.
+- I want to be able to view a large map that takes up the entire screen.
+- I want to be able to click on each carpark location icon to view more information about that carpark.
 
-```
-Example:
-
-User must be able to:
-
-- View Example
-- Blablabla
-- Search Example
-- Fine Example
-- etc..
-
-```
 
 ---
 
 ## Planning and Development Process
 
-A basic story of your planning and developing this project.
+The allotted time was 4 days. An extra day was spent in pre-production to resesearch APIs and component libraries, create a wireframe and write a planning document.
 
 ### Problem-Solving Strategy
 
-What strategy did you use to solve your problems.
+This was my first self-led project in React using 3rd party components. The documentation of those components was poor so a lot of trial-and-error and googling had to be done.
 
 ### Unsolved problems
 
-List unsolved problems which would be fixed in future iterations.
+- A bug where occasionally some markers stick to the viewport when the map is dragged.
+- Searchbox allows you to search and return a map anywhere in the world, not just Singapore.
+- Searching for a location and hitting enter instead of selecting a result will not always have the expected effect.
+- Markers need to be prettier.
+- Markers should update when map is dragged to fill the new bounds.
+- I want to eventually have markers showing over the whole of Singapore.
+- Availability data should be taken from LTA DataMall instead of Data.gov.sg. The latter only has availability information for HDB carparks, the former has availability for URA & LTA carparks too.
+- There are other small carparking datasets which would be nice to add, e.g. NParks and URA Season Parking.
 
 ## APIs Used
 
-List your APIs you have used in this project and explain why did you use it.
+- Carpark location: [LTA DataMall](https://www.mytransport.sg/content/mytransport/home/dataMall/dynamic-data.html#Traffic "LTA DataMall")
+- Carpark availability: [Data.gov.sg](https://data.gov.sg/dataset/carpark-availability "Data.gov.sg")
 
 ---
 
 ## Acknowledgments
-
-
----
-
- ## References
+- Simon Lau and Nausheen Salauddin
+- GA SEI-26 teammates
+- Will Beattie
