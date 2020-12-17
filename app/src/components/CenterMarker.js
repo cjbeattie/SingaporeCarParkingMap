@@ -6,17 +6,7 @@ import { pure } from 'recompose';
 
 const CenterMarker = (props) => {
 
-
-    return (
-        <div className="centerMarker"
-        >
-            {/* <span className="circleText">
-                    {availableLots ? availableLots : ""}
-                </span> */}
-        </div>
-
-
-    );
+    return (props.showCenterMarker ? <div className="centerMarker"></div> : <div></div>);
 };
 
 export default pure(CenterMarker);

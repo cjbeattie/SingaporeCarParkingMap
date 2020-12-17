@@ -43,7 +43,7 @@ const Marker = (props) => {
             // text={availableLots ? { availableLots } : ""}
             >
                 <span className="circleText">
-                    {availableLots ? availableLots : ""}
+                    {availableLots ? availableLots : "P"}
                 </span>
             </div>
         </OverlayTrigger>

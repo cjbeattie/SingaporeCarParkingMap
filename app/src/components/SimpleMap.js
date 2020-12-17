@@ -59,7 +59,7 @@ class SimpleMap extends Component {
             (carpark) => <Marker
                 lat={carpark.Location.split(" ")[0]}
                 lng={carpark.Location.split(" ")[1]}
-                color={carpark.color ? carpark.color : "black"}
+                color={carpark.color ? carpark.color : "gray"}
                 availableLots={carpark.availableLots}
                 numLots={carpark.numLots}
                 carparkInfo={carpark}
@@ -87,6 +87,7 @@ class SimpleMap extends Component {
                         <CenterMarker
                             lat={this.props.center.lat}
                             lng={this.props.center.lng}
+                            showCenterMarker={this.props.showCenterMarker}
                         />
                         {this.getMarkers()}
                     </GoogleMapReact>

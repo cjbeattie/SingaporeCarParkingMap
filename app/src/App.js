@@ -17,6 +17,7 @@ function App() {
   const [zoom, setZoom] = useState(12);
   const [HDB_CarparkAvailabilityData, setHDB_CarparkAvailabilityData] = useState(null);
   const [HDB_AvailabilityDataAvailable, setHDB_AvailabilityDataAvailable] = useState(false);
+  const [showCenterMarker, setShowCenterMarker] = useState(false);
 
   const getRealtimeData = () => {
     const url = `https://api.data.gov.sg/v1/transport/carpark-availability`
@@ -58,6 +59,7 @@ function App() {
       lng: place[0].geometry.location.lng()
     });
     setZoom(16);
+    setShowCenterMarker(true);
   }
 
   const handleBrandClick = () => {
@@ -67,6 +69,7 @@ function App() {
       lng: 103.8198
     })
     setZoom(12);
+    setShowCenterMarker(false);
   }
 
   const filterOnlyCars = () => {
@@ -89,7 +92,9 @@ function App() {
           HDB_CarparkAvailabilityData={HDB_CarparkAvailabilityData}
           HDB_AvailabilityDataAvailable={HDB_AvailabilityDataAvailable}
           center={center}
-          zoom={zoom} />
+          zoom={zoom}
+          showCenterMarker={showCenterMarker} />
+
       </Route>
       <Route path="/about">
         <About />
