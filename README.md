@@ -5,7 +5,7 @@ A map that shows car park location and availability in Singapore.
 
 ## Description
 
-Google Maps is the most popular map tool, but the information on car parking in Singapore is minimal. The Singapore Government has put good information online through their API and some websites have implemented this, but the user experience is poor. E.g. SG Car Mart, the map doesn’t fit the window, searching for a location in their search bar doesn’t automatically zoom in on the results.
+Google Maps is the most popular map tool, but the information on car parking in Singapore is minimal. The Singapore Government has put good information online through their API and some websites have implemented this, but the user experience is poor. E.g. [SG Car Mart](https://www.sgcarmart.com/news/carpark_index.php "SG Car Mart"), the map doesn’t fit the window, searching for a location in their search bar doesn’t automatically zoom in on the results.
 
 This is an attempt to use Google Maps API to create a map with the same popular UX, but overlay it with more useful carparking data from the Singapore Government.
 It allows the user to input an address and show car parks within the radius at that location, as well as how many carparks are available at each.
@@ -46,7 +46,7 @@ This was my first self-led project in React using 3rd party components. The docu
 ### Unsolved problems and wish list
 
 - A bug where occasionally some markers stick to the viewport when the map is dragged.
-- Searchbox allows you to search and return a map anywhere in the world, not just Singapore.
+- Searchbox allows you to search and return a map anywhere in the world, not just Singapore, which is incorrect.
 - Searching for a location and hitting enter instead of selecting a result will not always have the expected effect.
 - Markers need to be prettier.
 - Markers should update when map is dragged to fill the new bounds.
