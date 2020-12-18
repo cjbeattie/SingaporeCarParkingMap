@@ -14,6 +14,7 @@ It allows the user to input an address and show car parks within the radius at t
 - React
 - Axios for API
 - Google Map React
+- Geolib
 - React Bootstrap
 - Vercel for deployment
 - JavaScript, JSX, HTML, CSS
