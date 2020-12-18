@@ -14,7 +14,7 @@ class Navigation extends Component {
     render() {
         return (
             <Navbar variant="dark" bg="dark" expand="lg">
-                <Navbar.Brand href="#home" onClick={this.props.handleBrandClick}>Singapore Car Parking Map</Navbar.Brand>
+                <Navbar.Brand href="/" onClick={this.props.handleBrandClick}>Singapore Car Parking Map</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
