@@ -75,7 +75,7 @@ function App() {
   const filterOnlyCars = () => {
     let tempArr = [];
     for (const carpark of LTACarparkAvailabilityOffline.value) {
-      if (carpark.LotType = "C") {
+      if (carpark.LotType === "C") {
         tempArr.push(carpark);
       }
     }
