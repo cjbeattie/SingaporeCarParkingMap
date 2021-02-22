@@ -1,5 +1,5 @@
 # Singapore Car Parking Map
-[Link to site](https://ga-project2-react-app.vercel.app/ "Link to site") 
+[Link to site](https://singapore-car-parking-map.vercel.app/ "Link to site") 
 
 A map that shows car park location and availability in Singapore.
 
