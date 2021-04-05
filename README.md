@@ -6,6 +6,9 @@ All projects here were done in about 5 days so are very much MVPs at this stage,
 
 A map that shows car park location and availability in Singapore.
 
+### Screenshot
+![Screenshot](/documentation/CarParkingMap.png)
+
 ## Description
 
 Google Maps is the most popular map tool, but the information on car parking in Singapore is minimal. The Singapore Government has put good information online through their API and some websites have implemented this, but the user experience is poor. E.g. [SG Car Mart](https://www.sgcarmart.com/news/carpark_index.php "SG Car Mart"), the map doesn’t fit the window, searching for a location in their search bar doesn’t automatically zoom in on the results.
@@ -21,9 +24,6 @@ It allows the user to input an address and show car parks within the radius at t
 - React Bootstrap
 - Vercel for deployment
 - JavaScript, JSX, HTML, CSS
-
-### Screenshot
-![Screenshot](/documentation/CarParkingMap.png)
 
 ### Wireframes
 
