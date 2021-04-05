@@ -22,6 +22,9 @@ It allows the user to input an address and show car parks within the radius at t
 - Vercel for deployment
 - JavaScript, JSX, HTML, CSS
 
+### Screenshot
+![Screenshot](/documentation/CarParkingMap.png)
+
 ### Wireframes
 
 This is is how I originally imagined it. My final version has more information available on the carparks themselves but doesn't (yet) allow the user to select their radius.
